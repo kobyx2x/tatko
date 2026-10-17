@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>З днем народження, тату! 🎂</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, "Times New Roman", serif;
+  background: linear-gradient(135deg, #101735, #402060, #a33c75);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 22px 14px;
+  overflow-x: hidden;
+}
+
+.stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .6;
+  background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(#ffd777 1px, transparent 1px);
+  background-size: 55px 55px, 83px 83px;
+  background-position: 0 0, 25px 30px;
+}
+
+h1, h2, p {
+  overflow-wrap: anywhere;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  min-height: 460px;
+  background: linear-gradient(145deg, #fff8e9, #ffe2ed);
+  color: #57234e;
+  border: 3px solid #ffd778;
+  border-radius: 24px;
+  box-shadow: 0 20px 65px #0006;
+  padding: 35px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  animation: appear .6s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.decoration {
+  font-size: 38px;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-size: clamp(36px, 8vw, 60px);
+  line-height: 1.08;
+  color: #a32669;
+  margin: 10px 0 20px;
+  text-shadow: 2px 2px 0 #ffd778;
+}
+
+h2 {
+  color: #a32669;
+  font-size: clamp(27px, 6vw, 38px);
+  margin: 10px 0 22px;
+}
+
+p {
+  font-size: clamp(18px, 4vw, 23px);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.signature {
+  margin-top: 38px;
+  font-size: 23px;
+  font-style: italic;
+  color: #873c75;
+}
+
+.page-number {
+  margin-top: 22px;
+  font: 13px Arial, sans-serif;
+  color: #9e648a;
+}
+
+.controls {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-top: 23px;
+  width: 100%;
+  max-width: 620px;
+}
+
+button {
+  border: 1px solid #ffd778;
+  border-radius: 30px;
+  background: #fff3d6;
+  color: #692452;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 13px 22px;
+  cursor: pointer;
+  transition: transform .2s, background .2s;
+}
+
+button:hover {
+  background: #ffd778;
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.dots {
+  position: relative;
+  display: flex;
+  gap: 9px;
+  margin-top: 19px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffffff65;
+  border: 0;
+  padding: 0;
+}
+
+.dot.active {
+  background: #ffd778;
+  transform: scale(1.3);
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 430px) {
+  .card {
+    min-height: 470px;
+    padding: 25px 19px;
+  }
+  .controls {
+    gap: 8px;
+  }
+  button {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="stars"></div>
+
+<main class="card" id="card" aria-live="polite">
+  <section class="page" id="page0">
+    <div class="decoration">🎉 🎂 🎈</div>
+    <h1>З ДНЕМ<br>НАРОДЖЕННЯ!!!</h1>
+    <p>Для найкращого тата у світі ❤️</p>
+    <div class="signature">від Максима</div>
+    <div class="page-number">Обкладинка</div>
+  </section>
+
+  <section class="page hidden" id="page1">
+    <div class="decoration">💖</div>
+    <h2>Любий тату!</h2>
+    <p>
+      Тату, вітаю тебе з днем народження!
+      Бажаю тобі усього найкращого і щоб у тебе
+      завжди все виходило в житті і щоб ти десь
+      колись зміг купити собі нову Теслу! 🚘⚡
+    </p>
+    <div class="signature">Обіймаю! ❤️</div>
+    <div class="page-number">Сторінка 1</div>
+  </section>
+
+  <section class="page hidden" id="page2">
+    <div class="decoration">🌟 🥳 🌟</div>
+    <h2>Бажаю щастя!</h2>
+    <p>
+      Нехай кожен день приносить радість,
+      гарний настрій і приємні сюрпризи.
+      Нехай поруч завжди будуть рідні люди,
+      а приводів для усмішки буде безліч!
+    </p>
+    <div class="signature">Ти найкращий! 🏆</div>
+    <div class="page-number">Сторінка 2</div>
+  </section>
+
+  <section class="page hidden" id="page3">
+    <div class="decoration">💪 😎 🚀</div>
+    <h2>Нових перемог!</h2>
+    <p>
+      Бажаю міцного здоров'я, сил, успіху
+      та здійснення всіх твоїх мрій.
+      Нехай будь-які труднощі долаються легко,
+      а всі плани стають реальністю!
+    </p>
+    <div class="signature">У тебе все вийде! ✨</div>
+    <div class="page-number">Сторінка 3</div>
+  </section>
+
+  <section class="page hidden" id="page4">
+    <div class="decoration">🚘 ⚡ 🏁</div>
+    <h2>Мрія про Tesla!</h2>
+    <p>
+      Бажаю, щоб одного дня ти сів за кермо
+      своєї новенької Тесли! 😎
+      Нехай вона буде найкрутішою,
+      дороги — рівними, а подорожі — незабутніми!
+    </p>
+    <div class="signature">З любов'ю, Максим ❤️</div>
+    <div class="page-number">Сторінка 4 · Кінець</div>
+  </section>
+</main>
+
+<nav class="controls" aria-label="Керування листівкою">
+  <button id="prev" onclick="changePage(-1)" disabled>
+    ← Назад
+  </button>
+  <button id="next" onclick="changePage(1)">
+    Далі →
+  </button>
+</nav>
+
+<div class="dots" id="dots" aria-label="Сторінки листівки"></div>
+
+<script>
+let currentPage = 0;
+const totalPages = 5;
+
+const card = document.getElementById("card");
+const prevButton = document.getElementById("prev");
+const nextButton = document.getElementById("next");
+const dots = document.getElementById("dots");
+
+for (let i = 0; i < totalPages; i++) {
+  const dot = document.createElement("button");
+  dot.className = "dot";
+  dot.setAttribute("aria-label", "Сторінка " + (i + 1));
+  dot.onclick = () => showPage(i);
+  dots.appendChild(dot);
+}
+
+function showPage(index) {
+  currentPage = Math.max(0, Math.min(totalPages - 1, index));
+
+  document.querySelectorAll(".page").forEach((page, i) => {
+    page.classList.toggle("hidden", i !== currentPage);
+  });
+
+  document.querySelectorAll(".dot").forEach((dot, i) => {
+    dot.classList.toggle("active", i === currentPage);
+  });
+
+  prevButton.disabled = currentPage === 0;
+  nextButton.textContent =
+    currentPage === totalPages - 1 ? "На початок ↺" : "Далі →";
+
+  card.style.animation = "none";
+  void card.offsetWidth;
+  card.style.animation = "appear .35s ease";
+}
+
+function changePage(direction) {
+  if (currentPage === totalPages - 1 && direction === 1) {
+    showPage(0);
+    return;
+  }
+  showPage(currentPage + direction);
+}
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowRight") changePage(1);
+  if (event.key === "ArrowLeft") changePage(-1);
+});
+
+let touchStartX = 0;
+
+card.addEventListener("touchstart", (event) => {
+  touchStartX = event.changedTouches[0].screenX;
+}, { passive: true });
+
+card.addEventListener("touchend", (event) => {
+  const difference = event.changedTouches[0].screenX - touchStartX;
+  if (Math.abs(difference) > 60) {
+    changePage(difference < 0 ? 1 : -1);
+  }
+}, { passive: true });
+
+showPage(0);
+</script>
+</body>
+</html>
